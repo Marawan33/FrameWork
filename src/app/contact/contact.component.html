@@ -1,0 +1,59 @@
+<div>
+    <div class="container">
+        <div class="text-center pt-4" style="color: rgb(44, 62, 80);">
+            <h2 class="fs-1 fw-bold " > CONTACT </h2>
+            <div class="break d-flex justify-content-center align-items-center mb-3">
+            <div class="line me-3 dark">
+      
+            </div>
+            <i class="fa-solid fa-star "></i>
+            <div class="line ms-3 dark">
+          </div>
+      
+            </div>
+          </div>
+
+          <form [formGroup]="contactForm" (ngSubmit)="submit(contactForm)" class="w-75 m-auto p-3 my-5" action="">
+            <div class="form-floating mb-4">
+                <input formControlName="userName" type="text" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">User Name</label>
+                <div class="mt-2" *ngIf="contactForm.get('userName')?.errors && contactForm.get('userName')?.touched">
+                 <p class="text-danger" *ngIf="contactForm.get('userName')?.getError('required')">This Field is Required</p>
+                 <p class="text-danger" *ngIf="contactForm.get('userName')?.getError('minlength')">The Minimum lenght for the User Name must be 3</p>
+                 <p class="text-danger" *ngIf="contactForm.get('userName')?.getError('maxlength')">The Maximum lenght for the User Name must be 10</p>
+                </div>
+              </div>
+              <div>
+               
+              </div>
+            <div class="form-floating mb-4">
+                <input formControlName="Age" type="text"  class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">Age</label>
+                <div class="mt-2" *ngIf="contactForm.get('Age')?.errors && contactForm.get('Age')?.touched">
+                  <p class="text-danger" *ngIf="contactForm.get('Age')?.getError('required')">This Field is Required</p>
+                  <p class="text-danger" *ngIf="contactForm.get('Age')?.getError('min')">You Must be at least 18</p>
+                  <p class="text-danger" *ngIf="contactForm.get('Age')?.getError('pattern')">The Age Must be a Two Digit Number </p>
+                 </div>
+              </div>
+            <div class="form-floating mb-4">
+                <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">Email address</label>
+                <div class="mt-2" *ngIf="contactForm.get('email')?.errors && contactForm.get('email')?.touched">
+                  <p class="text-danger" *ngIf="contactForm.get('email')?.getError('required')">This Field is Required</p>
+                  <p class="text-danger" *ngIf="contactForm.get('email')?.getError('email')">Enter a valid Email</p>
+                 
+                 </div>
+              </div>
+            <div class="form-floating mb-3">
+                <input formControlName="password" type="password" class="form-control" id="floatingInput" placeholder="">
+                <label for="floatingInput">Password</label>
+                <div class="mt-2" *ngIf="contactForm.get('password')?.errors && contactForm.get('password')?.touched">
+                  <p class="text-danger" *ngIf="contactForm.get('password')?.getError('required')">This Field is Required</p>
+                  <p class="text-danger" *ngIf="contactForm.get('password')?.getError('pattern')">The Password must be : Minimum eight characters, at least one letter and one number</p>
+                 
+                 </div>
+              </div>
+              <button [disabled]="contactForm.invalid"  class="btn btn-danger px-5 mt-4  " type="submit">Submit</button>
+          </form>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+nav {
+  background-color: #2C3E50 !important;
+}
+nav .navbar-brand {
+  font-weight: 700;
+  font-size: 32px;
+  color: white;
+}
+nav li a {
+  color: white;
+}/*# sourceMappingURL=navbar.component.css.map */
